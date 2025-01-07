@@ -107,6 +107,7 @@
             btnGradovi.Text = "Gradovi";
             btnGradovi.UseColumnTextForButtonValue = true;
             btnGradovi.Width = 125;
+
             // 
             // btnNovaDrzava
             // 

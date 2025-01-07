@@ -50,5 +50,8 @@ namespace FIT.WinForms.IspitIB210178
             var Nova = new frmNovaDržavaIB210178();
             Nova.ShowDialog();
         }
+
+        
+
     }
 }
