@@ -32,13 +32,13 @@
             btnNovaDrzava = new Button();
             btnPrintaj = new Button();
             dgvDrzava = new DataGridView();
-            Sat = new System.Windows.Forms.Timer(components);
-            statusStrip1 = new StatusStrip();
             Zastava = new DataGridViewImageColumn();
             Naziv = new DataGridViewTextBoxColumn();
             BrojGradova = new DataGridViewTextBoxColumn();
             Status = new DataGridViewCheckBoxColumn();
             btnGradovi = new DataGridViewButtonColumn();
+            Sat = new System.Windows.Forms.Timer(components);
+            statusStrip1 = new StatusStrip();
             ((System.ComponentModel.ISupportInitialize)dgvDrzava).BeginInit();
             SuspendLayout();
             // 
@@ -50,6 +50,7 @@
             btnNovaDrzava.TabIndex = 0;
             btnNovaDrzava.Text = "Nova država";
             btnNovaDrzava.UseVisualStyleBackColor = true;
+            btnNovaDrzava.Click += btnNovaDrzava_Click;
             // 
             // btnPrintaj
             // 
@@ -74,19 +75,7 @@
             dgvDrzava.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDrzava.Size = new Size(776, 297);
             dgvDrzava.TabIndex = 1;
-            // 
-            // Sat
-            // 
-            Sat.Interval = 1000;
-            // 
-            // statusStrip1
-            // 
-            statusStrip1.ImageScalingSize = new Size(20, 20);
-            statusStrip1.Location = new Point(0, 428);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(800, 22);
-            statusStrip1.TabIndex = 2;
-            statusStrip1.Text = "statusStrip1";
+            dgvDrzava.CellDoubleClick += dgvDrzava_CellDoubleClick;
             // 
             // Zastava
             // 
@@ -135,6 +124,19 @@
             btnGradovi.Text = "Gradovi";
             btnGradovi.UseColumnTextForButtonValue = true;
             btnGradovi.Width = 125;
+            // 
+            // Sat
+            // 
+            Sat.Interval = 1000;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.ImageScalingSize = new Size(20, 20);
+            statusStrip1.Location = new Point(0, 428);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(800, 22);
+            statusStrip1.TabIndex = 2;
+            statusStrip1.Text = "statusStrip1";
             // 
             // frmDrzaveIB210178
             // 

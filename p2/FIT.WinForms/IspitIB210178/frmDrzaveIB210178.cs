@@ -16,6 +16,7 @@ namespace FIT.WinForms.IspitIB210178
     {
 
         DLWMSDbContext db = new DLWMSDbContext();
+        List<DrzaveIB210178> Drzave;
         public frmDrzaveIB210178()
         {
             InitializeComponent();
@@ -29,19 +30,35 @@ namespace FIT.WinForms.IspitIB210178
         private void UcitajDrzave()
         {
             dgvDrzava.AutoGenerateColumns = false;
-            var Drzave = db.DrzaveIB210178.ToList();
+            Drzave = db.DrzaveIB210178.ToList();
 
             for (int i = 0; i < Drzave.Count; i++)
-            {
-                Drzave[i].brojGradova = db.GradoviIB210178.Where(grad=> grad.DrzavaId == Drzave[i].Id).Count();
-            }
+                Drzave[i].brojGradova = db.GradoviIB210178.Where(grad => grad.DrzavaId == Drzave[i].Id).Count();
 
-            if (Drzave != null) { 
+
+            if (Drzave != null)
+            {
                 dgvDrzava.DataSource = null;
                 dgvDrzava.DataSource = Drzave;
             }
 
-            
+
+        }
+
+        private void btnNovaDrzava_Click(object sender, EventArgs e)
+        {
+            var novaDrzava = new frmNovaDržavaIB210178();
+            if (novaDrzava.ShowDialog() == DialogResult.OK)
+                UcitajDrzave();
+        }
+
+        private void dgvDrzava_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var odabranaDrzava = Drzave[e.RowIndex];
+
+            var novaDrzava = new frmNovaDržavaIB210178(odabranaDrzava);
+            if (novaDrzava.ShowDialog() == DialogResult.OK)
+                UcitajDrzave();
         }
     }
 }
