@@ -1,4 +1,5 @@
 ﻿using FIT.Infrastructure;
+using FIT.WinForms.IspitIB210178;
 using FIT.WinForms.Izvjestaji;
 
 using System;
@@ -33,7 +34,8 @@ namespace FIT.WinForms
 
         private void btnDržaveGradovi_Click(object sender, EventArgs e)
         {
-
+            
+            new frmDrzaveIB210178().ShowDialog();
         }
     }
 }
