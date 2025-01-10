@@ -54,11 +54,28 @@ namespace FIT.WinForms.IspitIB210178
 
         private void dgvDrzava_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var odabranaDrzava = Drzave[e.RowIndex];
+            if (e.ColumnIndex != btnGradovi.Index)
+            {
+                var odabranaDrzava = Drzave[e.RowIndex];
 
-            var novaDrzava = new frmNovaDržavaIB210178(odabranaDrzava);
-            if (novaDrzava.ShowDialog() == DialogResult.OK)
+
+                var novaDrzava = new frmNovaDržavaIB210178(odabranaDrzava);
+                if (novaDrzava.ShowDialog() == DialogResult.OK)
+                    UcitajDrzave();
+            }
+        }
+
+        private void dgvDrzava_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           if(e.ColumnIndex == btnGradovi.Index) { 
+            var odabranaDrzava = Drzave[e.RowIndex];
+            
+            
+
+            var gradovi = new frmGradoviIB210178(odabranaDrzava);
+            if (gradovi.ShowDialog() == DialogResult.OK)
                 UcitajDrzave();
         }
+    }
     }
 }

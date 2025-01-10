@@ -75,6 +75,7 @@
             dgvDrzava.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDrzava.Size = new Size(776, 297);
             dgvDrzava.TabIndex = 1;
+            dgvDrzava.CellContentClick += dgvDrzava_CellContentClick;
             dgvDrzava.CellDoubleClick += dgvDrzava_CellDoubleClick;
             // 
             // Zastava
