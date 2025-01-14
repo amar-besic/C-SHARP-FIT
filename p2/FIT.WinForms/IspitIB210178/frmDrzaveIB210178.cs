@@ -28,6 +28,7 @@ namespace FIT.WinForms.IspitIB210178
         }
 
         private void UcitajDrzave()
+
         {
             dgvDrzava.AutoGenerateColumns = false;
             Drzave = db.DrzaveIB210178.ToList();

@@ -40,9 +40,9 @@
             groupBox1 = new GroupBox();
             checkBox1 = new CheckBox();
             textBox1 = new TextBox();
+            btnGenerisi = new Button();
             label1 = new Label();
             textBox2 = new TextBox();
-            btnGenerisi = new Button();
             ((System.ComponentModel.ISupportInitialize)pbZastava).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvGradovi).BeginInit();
             groupBox1.SuspendLayout();
@@ -91,6 +91,7 @@
             btnDodaj.TabIndex = 6;
             btnDodaj.Text = "Dodaj";
             btnDodaj.UseVisualStyleBackColor = true;
+            btnDodaj.Click += btnDodaj_Click;
             // 
             // dgvGradovi
             // 
@@ -103,8 +104,10 @@
             dgvGradovi.ReadOnly = true;
             dgvGradovi.RowHeadersWidth = 51;
             dgvGradovi.RowTemplate.Height = 29;
+            dgvGradovi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvGradovi.Size = new Size(551, 188);
             dgvGradovi.TabIndex = 7;
+            dgvGradovi.CellContentClick += dgvGradovi_CellContentClick;
             // 
             // Naziv
             // 
@@ -131,6 +134,8 @@
             btnPromjeni.MinimumWidth = 6;
             btnPromjeni.Name = "btnPromjeni";
             btnPromjeni.ReadOnly = true;
+            btnPromjeni.Text = "Promjeni status";
+            btnPromjeni.UseColumnTextForButtonValue = true;
             btnPromjeni.Width = 125;
             // 
             // groupBox1
@@ -165,6 +170,15 @@
             textBox1.Size = new Size(522, 115);
             textBox1.TabIndex = 0;
             // 
+            // btnGenerisi
+            // 
+            btnGenerisi.Location = new Point(286, 34);
+            btnGenerisi.Name = "btnGenerisi";
+            btnGenerisi.Size = new Size(86, 29);
+            btnGenerisi.TabIndex = 6;
+            btnGenerisi.Text = "Generisi";
+            btnGenerisi.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -180,15 +194,6 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(98, 27);
             textBox2.TabIndex = 5;
-            // 
-            // btnGenerisi
-            // 
-            btnGenerisi.Location = new Point(286, 34);
-            btnGenerisi.Name = "btnGenerisi";
-            btnGenerisi.Size = new Size(86, 29);
-            btnGenerisi.TabIndex = 6;
-            btnGenerisi.Text = "Generisi";
-            btnGenerisi.UseVisualStyleBackColor = true;
             // 
             // frmGradoviIB210178
             // 
@@ -221,14 +226,14 @@
         private TextBox tbNaziv;
         private Button btnDodaj;
         private DataGridView dgvGradovi;
-        private DataGridViewTextBoxColumn Naziv;
-        private DataGridViewCheckBoxColumn Status;
-        private DataGridViewButtonColumn btnPromjeni;
         private GroupBox groupBox1;
         private TextBox textBox1;
         private Label label1;
         private TextBox textBox2;
         private CheckBox checkBox1;
         private Button btnGenerisi;
+        private DataGridViewTextBoxColumn Naziv;
+        private DataGridViewCheckBoxColumn Status;
+        private DataGridViewButtonColumn btnPromjeni;
     }
 }
