@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -26,18 +27,8 @@ namespace FIT.WinForms.IspitIB210178
 
         private void btnSacuvaj_Click(object sender, EventArgs e)
         {
-            if (validirno())
-            {
-
-            }
+         
         }
 
-        private bool validirno()
-        {
-            if (ofdZastava.ShowDialog() == DialogResult.OK)
-            {
-                return Validator();
-            }
-        }
     }
 }
