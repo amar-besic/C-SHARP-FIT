@@ -1,4 +1,5 @@
-﻿using FIT.Infrastructure;
+﻿using FIT.Data.IspitIB210178;
+using FIT.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,25 +32,51 @@ namespace FIT.WinForms.IspitIB210178
             dgvDrzave.AutoGenerateColumns = false;
             var Drzave = db.DrzaveIB210178.ToList();
 
-            for (int i = 0; i < Drzave.Count(); i++)    {
+            for (int i = 0; i < Drzave.Count(); i++)
+            {
                 Drzave[i].BrojGradova = db.GradoviIB210178.Where(w => w.DrzavaId == Drzave[i].Id).Count();
             }
 
             dgvDrzave.DataSource = Drzave;
-            
+
 
         }
 
         private void sat_Tick(object sender, EventArgs e)
         {
             UcitajVrjeme();
-           
+
         }
 
         private void UcitajVrjeme()
         {
             tsslVrjeme.Text = $"Trenutno vrjeme: {DateTime.Now.ToString("HH:mm:ss")}";
-           
+
+        }
+
+        private void btnNovaDrzava_Click(object sender, EventArgs e)
+        {
+            var novaDrzavafrm = new frmNovaDržavaIB210178();
+            if (novaDrzavafrm.ShowDialog() == DialogResult.OK)
+            {
+                UcitajVrjeme();
+                UcitajDrzave();
+            }
+
+        }
+
+        private void dgvDrzave_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var Drzave = db.DrzaveIB210178.ToList();
+            if (e.ColumnIndex != btnGradovi.Index)
+            {
+                var odabranaDrzava = Drzave[e.RowIndex];
+
+
+                var novaDrzava = new frmNovaDržavaIB210178(odabranaDrzava);
+                if (novaDrzava.ShowDialog() == DialogResult.OK)
+                    UcitajDrzave();
+            }
         }
     }
 }

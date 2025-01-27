@@ -28,21 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            components = new System.ComponentModel.Container();
+            tbNaziv = new TextBox();
             pbZastava = new PictureBox();
             label1 = new Label();
             label2 = new Label();
             chbAktivan = new CheckBox();
             btnSacuvaj = new Button();
+            err = new ErrorProvider(components);
+            ofdZastava = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)pbZastava).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)err).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // tbNaziv
             // 
-            textBox1.Location = new Point(15, 255);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(378, 27);
-            textBox1.TabIndex = 0;
+            tbNaziv.Location = new Point(15, 255);
+            tbNaziv.Name = "tbNaziv";
+            tbNaziv.Size = new Size(378, 27);
+            tbNaziv.TabIndex = 0;
             // 
             // pbZastava
             // 
@@ -52,6 +56,7 @@
             pbZastava.SizeMode = PictureBoxSizeMode.StretchImage;
             pbZastava.TabIndex = 1;
             pbZastava.TabStop = false;
+            pbZastava.DoubleClick += pbZastava_DoubleClick;
             // 
             // label1
             // 
@@ -89,6 +94,15 @@
             btnSacuvaj.TabIndex = 5;
             btnSacuvaj.Text = "Sacuvaj";
             btnSacuvaj.UseVisualStyleBackColor = true;
+            btnSacuvaj.Click += btnSacuvaj_Click;
+            // 
+            // err
+            // 
+            err.ContainerControl = this;
+            // 
+            // ofdZastava
+            // 
+            ofdZastava.FileName = "openFileDialog1";
             // 
             // frmNovaDržavaIB210178
             // 
@@ -100,21 +114,25 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pbZastava);
-            Controls.Add(textBox1);
+            Controls.Add(tbNaziv);
             Name = "frmNovaDržavaIB210178";
             Text = "frmNovaDržavaIB210178";
+            Load += frmNovaDržavaIB210178_Load;
             ((System.ComponentModel.ISupportInitialize)pbZastava).EndInit();
+            ((System.ComponentModel.ISupportInitialize)err).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox tbNaziv;
         private PictureBox pbZastava;
         private Label label1;
         private Label label2;
         private CheckBox chbAktivan;
         private Button btnSacuvaj;
+        private ErrorProvider err;
+        private OpenFileDialog ofdZastava;
     }
 }

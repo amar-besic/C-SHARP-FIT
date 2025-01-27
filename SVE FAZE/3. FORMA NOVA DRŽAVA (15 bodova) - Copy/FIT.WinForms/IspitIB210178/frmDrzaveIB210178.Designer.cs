@@ -30,16 +30,16 @@
         {
             components = new System.ComponentModel.Container();
             dgvDrzave = new DataGridView();
-            btnNovaDrzava = new Button();
-            statusStrip1 = new StatusStrip();
-            tsslVrjeme = new ToolStripStatusLabel();
-            sat = new System.Windows.Forms.Timer(components);
-            btnPrintaj = new Button();
             Zastava = new DataGridViewImageColumn();
             Naziv = new DataGridViewTextBoxColumn();
             BrojGradova = new DataGridViewTextBoxColumn();
             Status = new DataGridViewCheckBoxColumn();
             btnGradovi = new DataGridViewButtonColumn();
+            btnNovaDrzava = new Button();
+            statusStrip1 = new StatusStrip();
+            tsslVrjeme = new ToolStripStatusLabel();
+            sat = new System.Windows.Forms.Timer(components);
+            btnPrintaj = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDrzave).BeginInit();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -58,46 +58,7 @@
             dgvDrzave.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDrzave.Size = new Size(776, 281);
             dgvDrzave.TabIndex = 0;
-            // 
-            // btnNovaDrzava
-            // 
-            btnNovaDrzava.Location = new Point(659, 23);
-            btnNovaDrzava.Name = "btnNovaDrzava";
-            btnNovaDrzava.Size = new Size(129, 29);
-            btnNovaDrzava.TabIndex = 1;
-            btnNovaDrzava.Text = "Nova država";
-            btnNovaDrzava.UseVisualStyleBackColor = true;
-            // 
-            // statusStrip1
-            // 
-            statusStrip1.ImageScalingSize = new Size(20, 20);
-            statusStrip1.Items.AddRange(new ToolStripItem[] { tsslVrjeme });
-            statusStrip1.Location = new Point(0, 389);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(800, 26);
-            statusStrip1.TabIndex = 2;
-            statusStrip1.Text = "statusStrip1";
-            // 
-            // tsslVrjeme
-            // 
-            tsslVrjeme.Name = "tsslVrjeme";
-            tsslVrjeme.Size = new Size(76, 20);
-            tsslVrjeme.Text = "tsslVrjeme";
-            // 
-            // sat
-            // 
-            sat.Enabled = true;
-            sat.Interval = 1000;
-            sat.Tick += sat_Tick;
-            // 
-            // btnPrintaj
-            // 
-            btnPrintaj.Location = new Point(659, 345);
-            btnPrintaj.Name = "btnPrintaj";
-            btnPrintaj.Size = new Size(129, 29);
-            btnPrintaj.TabIndex = 1;
-            btnPrintaj.Text = "Printaj";
-            btnPrintaj.UseVisualStyleBackColor = true;
+            dgvDrzave.CellDoubleClick += dgvDrzave_CellDoubleClick;
             // 
             // Zastava
             // 
@@ -146,6 +107,47 @@
             btnGradovi.Text = "Gradovi";
             btnGradovi.UseColumnTextForButtonValue = true;
             btnGradovi.Width = 125;
+            // 
+            // btnNovaDrzava
+            // 
+            btnNovaDrzava.Location = new Point(659, 23);
+            btnNovaDrzava.Name = "btnNovaDrzava";
+            btnNovaDrzava.Size = new Size(129, 29);
+            btnNovaDrzava.TabIndex = 1;
+            btnNovaDrzava.Text = "Nova država";
+            btnNovaDrzava.UseVisualStyleBackColor = true;
+            btnNovaDrzava.Click += btnNovaDrzava_Click;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.ImageScalingSize = new Size(20, 20);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { tsslVrjeme });
+            statusStrip1.Location = new Point(0, 389);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(800, 26);
+            statusStrip1.TabIndex = 2;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // tsslVrjeme
+            // 
+            tsslVrjeme.Name = "tsslVrjeme";
+            tsslVrjeme.Size = new Size(76, 20);
+            tsslVrjeme.Text = "tsslVrjeme";
+            // 
+            // sat
+            // 
+            sat.Enabled = true;
+            sat.Interval = 1000;
+            sat.Tick += sat_Tick;
+            // 
+            // btnPrintaj
+            // 
+            btnPrintaj.Location = new Point(659, 345);
+            btnPrintaj.Name = "btnPrintaj";
+            btnPrintaj.Size = new Size(129, 29);
+            btnPrintaj.TabIndex = 1;
+            btnPrintaj.Text = "Printaj";
+            btnPrintaj.UseVisualStyleBackColor = true;
             // 
             // frmDrzaveIB210178
             // 
