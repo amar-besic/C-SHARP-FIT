@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             btnSacuvaj = new Button();
@@ -35,7 +36,9 @@
             tbNazivDrzave = new TextBox();
             pbZastava = new PictureBox();
             ofdZastava = new OpenFileDialog();
+            err = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)pbZastava).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)err).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -97,6 +100,10 @@
             // 
             ofdZastava.FileName = "openFileDialog1";
             // 
+            // err
+            // 
+            err.ContainerControl = this;
+            // 
             // frmNovaDržavaIB210178
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -111,6 +118,7 @@
             Name = "frmNovaDržavaIB210178";
             Text = "Podaci o državi";
             ((System.ComponentModel.ISupportInitialize)pbZastava).EndInit();
+            ((System.ComponentModel.ISupportInitialize)err).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -124,5 +132,6 @@
         private TextBox tbNazivDrzave;
         private PictureBox pbZastava;
         private OpenFileDialog ofdZastava;
+        private ErrorProvider err;
     }
 }

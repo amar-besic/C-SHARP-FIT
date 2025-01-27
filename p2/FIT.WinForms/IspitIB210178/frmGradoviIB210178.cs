@@ -64,6 +64,7 @@ namespace FIT.WinForms.IspitIB210178
                 db.GradoviIB210178.Update(odabranigrad);
                 db.SaveChanges();
                 ucitajGradove();
+               
             }
         }
 

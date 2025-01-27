@@ -22,7 +22,9 @@ namespace FIT.WinForms.IspitIB210178
 
         private void frmDrzaveIB210178_Load(object sender, EventArgs e)
         {
+            
             UcitajDrzave();
+            ucitajVrjeme();
         }
 
         private void UcitajDrzave()
@@ -44,10 +46,20 @@ namespace FIT.WinForms.IspitIB210178
         private void btnNovaDrzava_Click(object sender, EventArgs e)
         {
             var frmNova = new frmNovaDržavaIB210178();
-            if(frmNova.ShowDialog() == DialogResult.OK)
+            if (frmNova.ShowDialog() == DialogResult.OK)
             {
                 UcitajDrzave();
             }
         }
+
+        private void sat_Ticking(object sender, EventArgs e)
+        {
+            ucitajVrjeme();
+        }
+
+        private void ucitajVrjeme()
+        {
+            tsslVrjeme2.Text = $"Trenutno vrjeme: {DateTime.Now.ToString("HH:mm:ss")}";
+        }
     }
-}
+}   

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             dgvDrzave = new DataGridView();
             Zastava = new DataGridViewImageColumn();
             Naziv = new DataGridViewTextBoxColumn();
@@ -36,7 +37,11 @@
             btnGradovi = new DataGridViewButtonColumn();
             btnNovaDrzava = new Button();
             btnPrintaj = new Button();
+            sat = new System.Windows.Forms.Timer(components);
+            tsslVrjeme = new StatusStrip();
+            tsslVrjeme2 = new ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)dgvDrzave).BeginInit();
+            tsslVrjeme.SuspendLayout();
             SuspendLayout();
             // 
             // dgvDrzave
@@ -121,11 +126,33 @@
             btnPrintaj.Text = "Printaj";
             btnPrintaj.UseVisualStyleBackColor = true;
             // 
+            // sat
+            // 
+            sat.Interval = 1000;
+            sat.Tick += sat_Ticking;
+            // 
+            // tsslVrjeme
+            // 
+            tsslVrjeme.ImageScalingSize = new Size(20, 20);
+            tsslVrjeme.Items.AddRange(new ToolStripItem[] { tsslVrjeme2 });
+            tsslVrjeme.Location = new Point(0, 446);
+            tsslVrjeme.Name = "tsslVrjeme";
+            tsslVrjeme.Size = new Size(800, 26);
+            tsslVrjeme.TabIndex = 3;
+            tsslVrjeme.Text = "statusStrip1";
+            // 
+            // tsslVrjeme2
+            // 
+            tsslVrjeme2.Name = "tsslVrjeme2";
+            tsslVrjeme2.Size = new Size(151, 20);
+            tsslVrjeme2.Text = "toolStripStatusLabel1";
+            // 
             // frmDrzaveIB210178
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 472);
+            Controls.Add(tsslVrjeme);
             Controls.Add(btnPrintaj);
             Controls.Add(btnNovaDrzava);
             Controls.Add(dgvDrzave);
@@ -133,7 +160,10 @@
             Text = "Države";
             Load += frmDrzaveIB210178_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDrzave).EndInit();
+            tsslVrjeme.ResumeLayout(false);
+            tsslVrjeme.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -146,5 +176,8 @@
         private DataGridViewTextBoxColumn BrojGradova;
         private DataGridViewCheckBoxColumn Status;
         private DataGridViewButtonColumn btnGradovi;
+        private System.Windows.Forms.Timer sat;
+        private StatusStrip tsslVrjeme;
+        private ToolStripStatusLabel tsslVrjeme2;
     }
 }
