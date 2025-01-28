@@ -199,6 +199,7 @@
             btnDodaj.TabIndex = 6;
             btnDodaj.Text = "Dodaj";
             btnDodaj.UseVisualStyleBackColor = true;
+            btnDodaj.Click += btnDodaj_Click_1;
             // 
             // tbNazivGrada
             // 

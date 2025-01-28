@@ -18,6 +18,7 @@ namespace FIT.WinForms.IspitIB210178
     {
         private DrzaveIB210178 odabranaDrzava;
         DLWMSDbContext db = new DLWMSDbContext();
+        List<GradoviIB210178> gradovi;
         public frmGradoviIB210178(DrzaveIB210178 odabranaDrzava)
         {
             InitializeComponent();
@@ -29,42 +30,55 @@ namespace FIT.WinForms.IspitIB210178
 
         private void frmGradoviIB210178_Load(object sender, EventArgs e)
         {
-            
 
-         
+
+
 
         }
 
         private void ucitajGradove()
         {
 
-            var gradovi = db.GradoviIB210178.Where(w => w.DrzavaId == odabranaDrzava.Id).ToList();
+             gradovi = db.GradoviIB210178.Where(w => w.DrzavaId == odabranaDrzava.Id).ToList();
             dgvGradovi.AutoGenerateColumns = false;
             dgvGradovi.DataSource = gradovi;
         }
 
-        private void btnDodaj_Click(object sender, EventArgs e)
+      
+
+       
+
+        private void btnDodaj_Click_1(object sender, EventArgs e)
         {
-            if ( validirano()){
+            if (validirano())
+            {
                 GradoviIB210178 noviGrad = new GradoviIB210178();
                 noviGrad.DrzavaId = odabranaDrzava.Id;
-                noviGrad.Naziv= odabranaDrzava.Naziv;
+                noviGrad.Naziv = tbNazivGrada.Text;
                 noviGrad.Status = true;
-                db.Add(noviGrad);
+                db.GradoviIB210178.Add(noviGrad);
                 db.SaveChanges();
-                
+
                 ucitajGradove();
             }
-
-
         }
 
         private bool validirano()
         {
-            return Validator.ProvjeriUnos(tbNazivGrada, err, Kljucevi.ReqiredValue);
+            if( Validator.ProvjeriUnos(tbNazivGrada, err, Kljucevi.ReqiredValue))
+            {
+                for (int i = 0; i < gradovi.Count; i++)
+                {
+                    if (gradovi[i].Naziv.ToLower() == tbNazivGrada.Text.ToLower())
+                    {
+                        MessageBox.Show($"Grad {gradovi[i]} vec postoji" );
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+       
         }
-
-        
-
     }
 }
