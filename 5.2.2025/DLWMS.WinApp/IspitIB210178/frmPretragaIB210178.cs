@@ -103,9 +103,11 @@ namespace DLWMS.WinApp.IspitIB210178
 
         private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == Razmjena.Index)
+            if (e.ColumnIndex == Razmjena.Index)
             {
+                var frmRazmjena = new frmRazmjeneIB210178(studenti[e.RowIndex]);
 
+                frmRazmjena.ShowDialog();
 
             }
             if (e.ColumnIndex == Aktivan.Index)
@@ -120,7 +122,7 @@ namespace DLWMS.WinApp.IspitIB210178
 
         private void dgvStudenti_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != Razmjena.Index)
+            if (e.ColumnIndex != Razmjena.Index)
             {
 
                 var frmEdit = new frmStudentEditIB210178(studenti[e.RowIndex]);

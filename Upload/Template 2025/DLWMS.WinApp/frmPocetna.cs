@@ -1,4 +1,6 @@
 ﻿using DLWMS.Infrastructure;
+using DLWMS.WinApp.Helpers;
+using DLWMS.WinApp.IspitIB210178;
 using DLWMS.WinApp.Izvjestaji;
 
 namespace DLWMS.WinApp
@@ -19,6 +21,11 @@ namespace DLWMS.WinApp
         private void btnIzvjestaj_Click(object sender, EventArgs e)
         {
             new frmIzvjestaji().Show();
+        }
+
+        private void btnIspit_Click(object sender, EventArgs e)
+        {
+            new frmPretragaIB210178().ShowDialog();
         }
     }
 }

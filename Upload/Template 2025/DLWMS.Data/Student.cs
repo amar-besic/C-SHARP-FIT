@@ -1,4 +1,6 @@
-﻿namespace DLWMS.Data
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace DLWMS.Data
 {
     public class Student
     {
@@ -14,6 +16,13 @@
         public int SpolId { get; set; }
         public Spol Spol { get; set; }
         public byte[] Slika { get; set; }
-        public bool Aktivan { get; set; }      
+        public bool Aktivan { get; set; }
+
+        public string ImePrezime => $"{Ime} {Prezime}";
+
+        [NotMapped]public string imeP { get; set; }
+        public string imeGrada => Grad.ToString() ?? "Nema grada";
+        public string imeSpola => Spol.ToString() ?? "Nema spola";
+
     }
 }
