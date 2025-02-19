@@ -1,0 +1,55 @@
+﻿using DLWMS.Data;
+using DLWMS.Infrastructure;
+using DLWMS.WinApp.Helpers;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace DLWMS.WinApp.IspitIB210718
+{
+    public partial class frmStudentEditIB210178 : Form
+    {
+        private Student student;
+        DLWMSContext db = new DLWMSContext();
+
+
+
+        public frmStudentEditIB210178(Student student)
+        {
+            InitializeComponent();
+            this.student = student;
+
+        }
+
+        private void frmStudentEditIB210178_Load(object sender, EventArgs e)
+        {
+            lblIme.Text = $"{student.Ime} {student.Prezime}";
+            lblIndex.Text = student.BrojIndeksa;
+
+            pbSlika.Image = student.Slika.ToImage();
+            cbDrzava.DataSource = db.Drzave.ToList();
+
+            while (cbDrzava.SelectedItem.ToString() != student.ImeDrzave) cbDrzava.SelectedIndex++;
+            while (cbGrad.SelectedItem.ToString() != student.Grad.Naziv) cbGrad.SelectedIndex++;
+            Text = $"Edit studenta {student}";
+
+        }
+
+        private void cbDrzava_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            cbGrad.DataSource = db.Gradovi.Where(x => x.DrzavaId == (cbDrzava.SelectedItem as Drzava).Id).ToLisliku_Click(object sender, EventArgs e)
+        {
+            if (ofdSlika.ShowDialog() == DialogResult.OK)
+                pbSlika.Image = Image.FromFile(ofdSlika.FileName);
+        }
+
+      
+    }
+}
