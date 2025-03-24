@@ -1,0 +1,74 @@
+
+25 6pm
+Caption
+H
+1
+of 4
+Na samom početku uradite Rebuild solution-a DLWMS kako bi se izvršio update NuGet paketa potrebnih za funkcionisanje aplikacije. Prethodni korak bi trebao osigurati uspješno pokretanje projekta.
+1. Kreiranja i modifikacije podataka koja nastanu u narednim zadacima se trebaju pohraniti u pripadajuću DLWMS bazu podataka.
+2.
+U okviru DLWMS baze kreirajte tabelu Stipendije Brojindeksa. U novokreiranu tabelu dodajte potrebne kolone i željeni broj zapisa, a neki od zapisa bi mogli biti sljedeći nazivi stipendija: Umjetnička, Istraživačka, Sportska, Poduzetnička i sl.
+Svaka stipendija se odobrava na nivou kalendarske godine i tom prilikom joj se definiše iznos izražen u BAM npr. Umjetnička stipendija za 2025. godinu iznosi 200 BAM (kreirati tabelu StipendijeGodine BrojIndeksa i uspostaviti potrebne relacije). Godine ne trebaju biti zasebna tabela niti entitet, već je dovoljno da bude cjelobrojna vrijednost.
+Kreirajte potrebne entitete i njima pripadajuće tabele koje će omogućiti da se svakom studentu može dodijeliti veći broj stipendija na nivou određene kalendarske godine npr. student John Doe u kalendarskoj 2025. godini može imati Umjetničku i Sportsku stipendiju (kreirati tabelu StudentiStipendije BrojIndeksa i uspostaviti potrebne relacije).
+10 bodova
+3. Kreirati formu frmPretragaBrojIndeksa, koja se prva pokreće prilikom startanja aplikacije, a koja će omogućiti pretragu dodijeljenih stipendija.
+Broj prikazanih studenata: 8
+frmPretraga BrojIndeksa
+N
+X
+Godina:
+2024
+Stipendija: Umjetnička
+Dodaj stipendiju Stipendije po godinama
+(Indeks) Ime i prezime (182400029) Maja Salkić
+Godina
+Stipendija
+Mjesecni iznos
+Ukupno
+2024
+Umjetnička
+200
+2400
+Ukloni
+(182400030) Lana Žigić
+2024
+Umjetnička
+200
+2400
+Uklor
+(182400031) Adis Mujkić
+2024
+Umjetnička
+200
+2400
+Ukloni
+(IB2400032) Sabrina Mujić
+2024
+Umjetnička
+200
+2400
+Ukloni
+(182400033) Denis Huremović 2024
+Umjetnička
+200
+2400
+Ukloni
+(B2400034) Maja Džafić
+2024
+Umjetnička
+200
+2400
+Ukloni
+(B2400035) Zlatan Gajić
+2024
+Umjetnička
+200
+2400
+Ukloni
+(182400036) Naida Purić
+2024
+Umjetnička
+200
+2400
+Ukloni
+Fakultet informacijskih tehnologija
